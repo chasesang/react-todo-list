@@ -21,22 +21,28 @@ var TodoComponent = React.createClass({
     });
 
 
-    // var ager = setTimeout(function(){
-    //   this.setState({
-    //     age: 35
-    //   });
-    // }.bind(this),5000);
+    var ager = setTimeout(function(){
+      this.setState({
+        age: 35
+      });
+    }.bind(this),5000);
 
     return(
       <div id="todo-list">
-      <p> The busiest people have the most leisure... </p>
+      <p onClick={this.clicked}> The busiest people have the most leisure... </p>
       <p> {this.state.age} </p>
       <ul>
         {todos}
       </ul>
       </div>
     );
-  } // render
+  }, // render
+
+
+  // custom fucntions
+  clicked: function(){
+    console.log('you clicked me!');
+  }
 });
 
 // create TodoItem component
@@ -46,9 +52,14 @@ var TodoItem = React.createClass({
       <li>
         <div className = "todo-item">
           <span className="item-name">{this.props.item}</span>
+          <span className='item-delete' onClick={this.handleDelete}> x </span>
         </div>
       </li>
     );
+  },
+  // custom functions
+  handleDelete:function(){
+
   }
 });
 
