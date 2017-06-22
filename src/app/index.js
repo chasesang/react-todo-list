@@ -15,16 +15,17 @@ var TodoComponent = React.createClass({
     var todos = this.state.todos;
     todos = todos.map(function(item,index){
       return(
-        
-      )
+        // nested components
+        <TodoItem item={item} key={index} />
+      );
     });
 
 
-    var ager = setTimeout(function(){
-      this.setState({
-        age: 35
-      });
-    }.bind(this),5000);
+    // var ager = setTimeout(function(){
+    //   this.setState({
+    //     age: 35
+    //   });
+    // }.bind(this),5000);
 
     return(
       <div id="todo-list">
@@ -36,6 +37,19 @@ var TodoComponent = React.createClass({
       </div>
     );
   } // render
+});
+
+// create TodoItem component
+var TodoItem = React.createClass({
+  render: function(){
+    return(
+      <li>
+        <div className = "todo-item">
+          <span className="item-name">{this.props.item}</span>
+        </div>
+      </li>
+    );
+  }
 });
 
 var myCheese = {name: 'Camemebert', smellFactor: 'Extreme pong', price: '3.50'};
