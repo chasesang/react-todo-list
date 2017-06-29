@@ -4,11 +4,11 @@ var ReactDOM = require('react-dom');
 
 //Module requires
 var TodoItem = require('./todoItem');
-// var AddItem = require('./addItem');
+var AddItem = require('./addItem');
 // var About = require('./about');
 //
-// //CSS requires
-// require('./css/index.css');
+//CSS requires
+require('./css/index.css');
 
 
 //SETUP ROUTING
@@ -40,7 +40,7 @@ var TodoComponent = React.createClass({
 
                 <p>The busiest people have the most leisure...</p>
                 <ul>{todos}</ul>
-                {/* <AddItem onAdd={this.onAdd} /> */}
+                <AddItem onAdd={this.onAdd} />
             </div>
         );
     }, //render
@@ -55,13 +55,28 @@ var TodoComponent = React.createClass({
         });
     },
 
-    // onAdd: function(item){
-    //     var updatedTodos = this.state.todos;
-    //     updatedTodos.push(item);
-    //     this.setState({
-    //         todos: updatedTodos
-    //     })
-    // }
+    onAdd: function(item){
+        var updatedTodos = this.state.todos;
+        updatedTodos.push(item);
+        this.setState({
+            todos: updatedTodos
+        })
+    },
+
+    // lifecycle functions
+    componentWillMount: function(){
+      console.log('componentWillMount');
+    },
+
+    componentDidMount: function(){
+      console.log('componentDidMount');
+      // any grabbing of external data
+    },
+
+    componentWillUpdate: function(){
+      console.log('componentWillUpdate');
+    },
+
 
 });
 
