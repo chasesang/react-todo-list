@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-// import { Router, Route } from 'react-router';
+
 
 //Module requires
 var TodoItem = require('./todoItem');
@@ -11,17 +11,6 @@ var About = require('./about');
 require('./css/index.css');
 
 
-//SETUP ROUTING
-// var App = React.createClass({
-//     render: function(){
-//         return(
-//             <Router history={browserHistory}>
-//                 <Route path={"/"} component={TodoComponent}></Route>
-//                 <Route path={"/about"} component={About}></Route>
-//             </Router>
-//         );
-//     }
-// });
 
 //Create a component
 var TodoComponent = React.createClass({
@@ -37,7 +26,7 @@ var TodoComponent = React.createClass({
         }.bind(this));
         return(
             <div id="todo-list">
-          
+
                 <p>The busiest people have the most leisure...</p>
                 <ul>{todos}</ul>
                 <AddItem onAdd={this.onAdd} />
